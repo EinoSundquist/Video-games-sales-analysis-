@@ -9,7 +9,7 @@ mydb = mysql.connector.connect(
 cursor = mydb.cursor()
 
 sql = """
-insert into sales  (title, console, genre, publisher, developer, critic_score, total_sales)
+INSERT INTO sales  (title, console, genre, publisher, developer, critic_score, total_sales)
 VALUES (%s, %s, %s, %s, %s, %s, %s)
 """
 values = [
@@ -23,8 +23,8 @@ for value in values:
 mydb.commit()
 
 sql = """
-select * from sales
-where title = "Wii sports"
+SELECT * from sales
+WHERE title = "Wii sports"
 """
 
 cursor.execute(sql)

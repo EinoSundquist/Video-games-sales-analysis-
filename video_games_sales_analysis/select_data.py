@@ -10,8 +10,8 @@ mydb = mysql.connector.connect(
 cursor = mydb.cursor()
 
 sql = """
-select * from sales
-limit 15
+SELECT * from sales
+LIMIT 15
 ;
 """
 cursor.execute(sql)
@@ -21,11 +21,11 @@ for row in myresult:
     print(row)
 
 sql = """
-select publisher, AVG(critic_score)
-from sales
-group by publisher
-order by AVG(critic_score) desc
-limit 15;
+SELECT publisher, AVG(critic_score)
+FROM sales
+GROUP BY publisher
+ORDER BY AVG(critic_score) desc
+LIMIT 15;
 """
 cursor.execute(sql)
 myresult = cursor.fetchall()
@@ -34,11 +34,11 @@ for publisher, critic_score in myresult:
 
 
 sql = """
-select title, sum(total_sales)
-from sales
-group by title
-order by sum(total_sales) desc
-limit 5;
+SELECT title, sum(total_sales)
+FROM sales
+GROUP BY title
+ORDER BY sum(total_sales) desc
+LIMIT 5;
 """
 cursor.execute(sql)
 myresult = cursor.fetchall()

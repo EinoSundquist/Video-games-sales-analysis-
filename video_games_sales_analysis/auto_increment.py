@@ -9,20 +9,20 @@ mydb = mysql.connector.connect(
 cursor = mydb.cursor()
 
 #modify id column so it begins from 1 instead of 0 so we can make the column auto_increment
-"""
-sql = "
-update sales
-set id = id + 1;
+'''
+sql = """
+UPDATE sales
+SET id = id + 1;
 "
 cursor.execute(sql)
 mydb.commit()
 """
-
+'''
 #Make the id column auto_increment
 
 sql = """
-alter table sales
-modify id INT NOT NULL AUTO_INCREMENT PRIMARY KEY;
+ALTER TABLE sales
+MODIFY id INT NOT NULL AUTO_INCREMENT PRIMARY KEY;
 """
 
 cursor.execute(sql)
